@@ -1,0 +1,27 @@
+{
+  "name": "apollo-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/wjstrze/apollo-server.git",
+  "author": "wjs <wojciech.strzelecki@packhelp.com>",
+  "license": "MIT",
+  "scripts": {
+    "pretty": "yarn prettier --write .",
+    "start": "nodemon --exec babel-node src/index.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.21.0",
+    "apollo-server-express": "^2.21.1",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.5.0",
+    "mongoose": "^5.12.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "nodemon": "^2.0.7",
+    "prettier": "2.2.1"
+  }
+}
