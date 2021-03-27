@@ -2,19 +2,21 @@ import { gql } from "apollo-server-express";
 
 export const typeDefs = gql`
   type Blog {
-    id: ID!
+    _id: ID!
     name: String!
+    posts: [Post]
   }
 
   type Post {
-    id: ID!
+    _id: ID!
     title: String!
     postBlogId: String!
+    blog: Blog!
   }
 
   type Query {
-    blogs: [Blog!]!
-    posts: [Post!]!
+    blogs: [Blog]
+    posts: [Post]
   }
 
   type Mutation {
