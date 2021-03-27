@@ -14,6 +14,12 @@ export const typeDefs = gql`
     blog: Blog!
   }
 
+  type Comment {
+    _id: ID!
+    content: String!
+    commentPostId: String!
+  }
+
   type User {
     _id: ID!
     username: String!
@@ -23,11 +29,13 @@ export const typeDefs = gql`
     blogs: [Blog]
     posts: [Post]
     users: [User]
+    comments: [Comment]
   }
 
   type Mutation {
     createBlog(name: String!): Blog
     createPost(title: String!, postBlogId: ID!): Post
     createUser(username: String!): User
+    createComment(content: String!, commentPostId: ID!): Comment
   }
 `;

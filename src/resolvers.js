@@ -1,11 +1,12 @@
 import { Types } from "mongoose";
-import { Blog, Post, User } from "./models";
+import { Blog, Post, User, Comment } from "./models";
 
 export const resolvers = {
   Query: {
     blogs: () => Blog.find().populate({ path: "posts", model: "Post" }).exec(),
     posts: () => Post.find().populate({ path: "blog", model: "Blog" }).exec(),
     users: () => User.find().exec(),
+    comments: () => Comment.find().exec(),
   },
   Mutation: {
     createBlog: async (_, { name }) => {
@@ -29,6 +30,14 @@ export const resolvers = {
         username,
       });
       return user.save();
+    },
+    createComment: async (_, { content, commentPostId }) => {
+      const comment = new Comment({
+        _id: Types.ObjectId(),
+        content,
+        commentPostId,
+      });
+      return comment.save();
     },
   },
 };
