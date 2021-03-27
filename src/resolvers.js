@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { Blog, Post, User, Comment } from "./models";
+import { Blog, Post, User, Comment, PostEditor } from "./models";
 
 export const resolvers = {
   Query: {
@@ -7,6 +7,7 @@ export const resolvers = {
     posts: () => Post.find().populate({ path: "blog", model: "Blog" }).exec(),
     users: () => User.find().exec(),
     comments: () => Comment.find().exec(),
+    postEditors: () => PostEditor.find().exec(),
   },
   Mutation: {
     createBlog: async (_, { name }) => {
@@ -38,6 +39,14 @@ export const resolvers = {
         commentPostId,
       });
       return comment.save();
+    },
+    createPostEditor: async (_, { postId, editorId }) => {
+      const postEditor = new PostEditor({
+        _id: Types.ObjectId(),
+        postId,
+        editorId,
+      });
+      return postEditor.save();
     },
   },
 };

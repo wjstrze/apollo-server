@@ -25,11 +25,18 @@ export const typeDefs = gql`
     username: String!
   }
 
+  type PostEditor {
+    _id: ID!
+    postId: ID!
+    editorId: ID!
+  }
+
   type Query {
     blogs: [Blog]
     posts: [Post]
     users: [User]
     comments: [Comment]
+    postEditors: [PostEditor]
   }
 
   type Mutation {
@@ -37,5 +44,6 @@ export const typeDefs = gql`
     createPost(title: String!, postBlogId: ID!): Post
     createUser(username: String!): User
     createComment(content: String!, commentPostId: ID!): Comment
+    createPostEditor(postId: ID!, editorId: ID!): PostEditor
   }
 `;
