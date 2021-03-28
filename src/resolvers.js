@@ -3,11 +3,37 @@ import { Blog, Post, User, Comment, PostEditor } from "./models";
 
 export const resolvers = {
   Query: {
-    blogs: () => Blog.find().populate({ path: "posts", model: "Post" }).exec(),
-    posts: () => Post.find().populate({ path: "blog", model: "Blog" }).exec(),
+    blogs: () =>
+      Blog.find()
+        .populate({
+          path: "posts",
+          model: "Post",
+          populate: {
+            path: "comments",
+            model: "Comment",
+          },
+        })
+        .exec(),
+    posts: () =>
+      Post.find()
+        .populate({ path: "blog", model: "Blog" })
+        .populate({ path: "comments", model: "Comment" })
+        .populate({
+          path: "editors",
+          model: "PostEditor",
+          populate: {
+            path: "editor",
+            model: "User",
+          },
+        })
+        .exec(),
     users: () => User.find().exec(),
     comments: () => Comment.find().exec(),
-    postEditors: () => PostEditor.find().exec(),
+    postEditors: () =>
+      PostEditor.find()
+        .populate({ path: "editor", model: "User" })
+        .populate({ path: "post", model: "Post" })
+        .exec(),
   },
   Mutation: {
     createBlog: async (_, { name }) => {

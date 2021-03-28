@@ -16,6 +16,20 @@ PostSchema.virtual("blog", {
   justOne: true,
 });
 
+PostSchema.virtual("comments", {
+  ref: "Comment",
+  localField: "_id",
+  foreignField: "commentPostId",
+  justOne: false,
+});
+
+PostSchema.virtual("editors", {
+  ref: "PostEditor",
+  localField: "_id",
+  foreignField: "postId",
+  justOne: false,
+});
+
 const Post = model("Post", PostSchema);
 
 export { Post, PostSchema };

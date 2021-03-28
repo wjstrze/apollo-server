@@ -12,6 +12,8 @@ export const typeDefs = gql`
     title: String!
     postBlogId: String!
     blog: Blog!
+    comments: [Comment]
+    editors: [PostEditor]
   }
 
   type Comment {
@@ -29,6 +31,8 @@ export const typeDefs = gql`
     _id: ID!
     postId: ID!
     editorId: ID!
+    editor: User
+    post: Post
   }
 
   type Query {
