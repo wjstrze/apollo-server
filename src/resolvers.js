@@ -12,6 +12,14 @@ export const resolvers = {
             path: "comments",
             model: "Comment",
           },
+          populate: {
+            path: "editors",
+            model: "PostEditor",
+            populate: {
+              path: "editor",
+              model: "User",
+            },
+          },
         })
         .exec(),
     posts: () =>
