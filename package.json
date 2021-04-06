@@ -7,12 +7,14 @@
   "license": "MIT",
   "scripts": {
     "pretty": "yarn prettier --write .",
-    "start": "nodemon --exec babel-node src/index.js"
+    "start": "nodemon --exec babel-node src/index.js",
+    "seed": "babel-node src/scripts/seed.js"
   },
   "dependencies": {
     "apollo-server": "^2.21.0",
     "apollo-server-express": "^2.21.1",
     "dotenv": "^8.2.0",
+    "faker": "^5.5.2",
     "graphql": "^15.5.0",
     "mongoose": "^5.12.0"
   },
