@@ -1,5 +1,5 @@
 import faker from "faker";
-var fs = require("fs");
+import fs from "fs";
 
 const getRandomInt = (max) => Math.floor(Math.random() * max) + 1;
 
