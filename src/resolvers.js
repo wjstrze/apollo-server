@@ -8,18 +8,20 @@ export const resolvers = {
         .populate({
           path: "posts",
           model: "Post",
-          populate: {
-            path: "comments",
-            model: "Comment",
-          },
-          populate: {
-            path: "editors",
-            model: "PostEditor",
-            populate: {
-              path: "editor",
-              model: "User",
+          populate: [
+            {
+              path: "editors",
+              model: "PostEditor",
+              populate: {
+                path: "editor",
+                model: "User",
+              },
             },
-          },
+            {
+              path: "comments",
+              model: "Comment",
+            },
+          ],
         })
         .exec(),
     posts: () =>
