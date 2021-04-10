@@ -14,7 +14,7 @@ const startServer = async () => {
   server.applyMiddleware({ app });
 
   await connect(process.env.CONNECTION_STRING, {
-    dbName: "test-10",
+    dbName: "test-12",
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });

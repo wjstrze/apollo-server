@@ -3,7 +3,7 @@ import fs from "fs";
 
 const getRandomInt = (max) => Math.floor(Math.random() * max) + 1;
 
-export const createJson = () => {
+export const generate = () => {
   const blogs = [...Array(10).keys()].map((i) => ({
     _id: faker.datatype.uuid(),
     name: faker.name.title(),
@@ -34,7 +34,7 @@ export const createJson = () => {
     username: faker.name.findName(),
   }));
 
-  const postEditor = posts.reduce((acc, post) => {
+  const posteditors = posts.reduce((acc, post) => {
     const editors = [...Array(getRandomInt(10)).keys()].map((i) => ({
       _id: faker.datatype.uuid(),
       editorId: users[getRandomInt(100 - 1)]._id,
@@ -44,15 +44,19 @@ export const createJson = () => {
     return [...acc, ...editors];
   }, []);
 
-  const json = {
+  return {
     blogs,
     posts,
     comments,
     users,
-    postEditor,
+    posteditors,
   };
-
-  fs.writeFileSync("./seed.json", JSON.stringify(json));
 };
 
-createJson();
+export const download = () => {
+  const json = generate();
+
+  Object.keys(json).map((key) => {
+    fs.writeFileSync(`./${key}.json`, JSON.stringify(json[key]));
+  });
+};

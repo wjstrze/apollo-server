@@ -8,7 +8,7 @@
   "scripts": {
     "pretty": "yarn prettier --write .",
     "start": "nodemon --exec babel-node src/index.js",
-    "seed": "babel-node src/scripts/seed.js"
+    "seed": "babel-node src/scripts/seed-db.js"
   },
   "dependencies": {
     "apollo-server": "^2.21.0",
