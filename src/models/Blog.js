@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const BlogSchema = new Schema({
-  _id: Schema.Types.ObjectId,
+  _id: String,
   name: {
     type: String,
     required: true,

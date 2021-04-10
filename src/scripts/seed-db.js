@@ -6,7 +6,7 @@ config();
 
 const seedDB = async () => {
   const db = await connect(process.env.CONNECTION_STRING, {
-    dbName: "test-12",
+    dbName: "test-13",
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });

@@ -1,12 +1,12 @@
 import { Schema, model } from "mongoose";
 
 const PostSchema = new Schema({
-  _id: Schema.Types.ObjectId,
+  _id: String,
   title: {
     type: String,
     required: true,
   },
-  postBlogId: { type: Schema.Types.ObjectId, ref: "Blog", required: true },
+  postBlogId: { type: String, ref: "Blog", required: true },
 });
 
 PostSchema.virtual("blog", {
