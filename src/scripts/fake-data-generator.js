@@ -3,7 +3,7 @@ import fs from "fs";
 
 const getRandomInt = (max) => Math.floor(Math.random() * max) + 1;
 
-export const generate = () => {
+export const generateFakeData = () => {
   const blogs = [...Array(10).keys()].map((i) => ({
     _id: faker.datatype.uuid(),
     name: faker.name.title(),

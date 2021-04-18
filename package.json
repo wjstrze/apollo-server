@@ -8,9 +8,12 @@
   "scripts": {
     "pretty": "yarn prettier --write .",
     "start": "nodemon --exec babel-node src/index.js",
-    "seed": "babel-node src/scripts/seed-db.js"
+    "seed": "babel-node src/scripts/seed.js",
+    "seed-mongi": "babel-node src/scripts/seed-mongi-db.js",
+    "seed-dynamo": "babel-node src/scripts/seed-dynamo-db.js"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.13.0",
     "apollo-server": "^2.21.0",
     "apollo-server-express": "^2.21.1",
     "dotenv": "^8.2.0",

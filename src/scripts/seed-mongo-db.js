@@ -1,17 +1,14 @@
 import { connect } from "mongoose";
 import { config } from "dotenv";
-import { generate } from "./fake-data-generator";
 
 config();
 
-const seedDB = async () => {
+export const seedMongoDb = async (json) => {
   const db = await connect(process.env.CONNECTION_STRING, {
     dbName: "test-13",
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-
-  const json = generate();
 
   for (let i = 0; i < Object.keys(json).length; i++) {
     const name = Object.keys(json)[i];
@@ -20,5 +17,3 @@ const seedDB = async () => {
 
   db.connection.close();
 };
-
-seedDB();
