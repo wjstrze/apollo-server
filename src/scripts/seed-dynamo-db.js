@@ -3,7 +3,6 @@ import {
   BatchWriteItemCommand,
 } from "@aws-sdk/client-dynamodb";
 import chunk from "lodash/chunk";
-import { generateFakeData } from "./fake-data-generator";
 
 const REGION = "eu-central-1";
 const MAX_BATCH_SIZE = 25; // dynamo-db limtation
