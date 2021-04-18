@@ -9,7 +9,7 @@
     "pretty": "yarn prettier --write .",
     "start": "nodemon --exec babel-node src/index.js",
     "seed": "babel-node src/scripts/seed.js",
-    "seed-mongi": "babel-node src/scripts/seed-mongi-db.js",
+    "seed-mongo": "babel-node src/scripts/seed-mongo-db.js",
     "seed-dynamo": "babel-node src/scripts/seed-dynamo-db.js"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "dotenv": "^8.2.0",
     "faker": "^5.5.2",
     "graphql": "^15.5.0",
+    "lodash": "^4.17.21",
     "mongoose": "^5.12.0"
   },
   "devDependencies": {
