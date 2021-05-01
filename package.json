@@ -8,6 +8,7 @@
   "scripts": {
     "pretty": "yarn prettier --write .",
     "start": "nodemon --exec babel-node src/index.js",
+    "build": "babel src -d build",
     "seed": "babel-node src/scripts/seed.js",
     "seed-mongo": "babel-node src/scripts/seed-mongo-db.js",
     "seed-dynamo": "babel-node src/scripts/seed-dynamo-db.js"
